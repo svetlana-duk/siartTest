@@ -45,6 +45,9 @@ textarea.input {
   min-height: toRem(132);
   resize: none;
   padding: toRem(14) toRem(16);
+  @media (max-width: $pc) {
+    min-height: toRem(68);
+  }
   @media (max-width: $tablet) {
     padding: toRem(12) toRem(16);
   }

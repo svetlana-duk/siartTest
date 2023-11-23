@@ -123,13 +123,13 @@ body {
 	[class*="__container"] {
 		margin: 0 auto;
 		@if ($maxWidthContainer>0) {
-			max-width: toRem($containerWidth);
+			max-width: toRem($maxWidthContainer);
 		} @else {
 			@if ($containerPadding>0) {
 				padding: 0 toRem(math.div($containerPadding, 2));
 			}
 		}
-		@media (max-width: $pc) {
+		@media (max-width: em(1699.98)) {
 			max-width: toRem(1184);
 		}
 		@media (max-width: $tablet) {

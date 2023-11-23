@@ -10,9 +10,6 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: toRem(24);
-    @media (max-width: $pc) {
-      padding-bottom: toRem(20);
-    }
     @media (max-width: $mobile) {
       padding-bottom: toRem(12);
     }
@@ -339,6 +336,7 @@
 }
 .price {
   display: flex;
+  align-items: center;
   gap: toRem(12);
   white-space: nowrap;
   color: $darkGrey;
@@ -350,8 +348,9 @@
       content: '₽';
     }
   }
-  @media (max-width: $pc) {
+  @media (max-width: em(1399.98)) {
     flex-direction: column-reverse;
+    align-items: flex-start;
     gap: toRem(4);
     line-height: toRem(20);
   }

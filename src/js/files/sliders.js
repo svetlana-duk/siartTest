@@ -39,10 +39,10 @@ function initSliders() {
         },
         // Брейкпоинты
 				breakpoints: {
-					768: {
+          480: {
 						slidesPerView: 3,
-					},
-					992: {
+          },
+					768: {
 						slidesPerView: 4,
 					},
 					1024: {

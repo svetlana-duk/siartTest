@@ -41,6 +41,10 @@
     @media (min-width: $pc) {
       padding-bottom: toRem(4);
     }
+    @media (max-width: $pc) {
+      font-size: toRem(16);
+      line-height: toRem(24);
+    }
     @media (max-width: $mobile) {
       font-size: toRem(14);
     }
@@ -86,9 +90,9 @@
     }
     @media (min-width: $mobile) {
       flex: 0 1 33.333%;
-			&--textarea {
-				flex: 1 1 100%;
-			}
+      &--textarea {
+        flex: 1 1 100%;
+      }
     }
   }
   // .form__button-reset
@@ -109,9 +113,9 @@
       opacity: 1;
       pointer-events: all;
     }
-		@media (max-width: $pc) {
-			top: toRem(14);
-		}
+    @media (max-width: $pc) {
+      top: toRem(14);
+    }
   }
   // .form__button
   &__button {
