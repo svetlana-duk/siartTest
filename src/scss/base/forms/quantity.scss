@@ -1,0 +1,96 @@
+/*! Модуль формы количество ========================================================================================================================================================*/
+.quantity {
+  height: toRem(48);
+  display: flex;
+  gap: toRem(8);
+  & > * {
+    border: 1px solid $lightGrey;
+    border-radius: toRem(7);
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      .quantity__input input {
+        color: $blue;
+      }
+    }
+  }
+  @media (max-width: $pc) {
+    height: toRem(36);
+  }
+  // .quantity__button
+  &__button {
+    flex: 0 0 toRem(48);
+    position: relative;
+    cursor: pointer;
+    @extend %btnHoverColor;
+    @extend %btnActiveColor;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transition: all 0.3s ease 0s;
+      margin: 0 0 0 toRem(-9);
+      background: $mainColor;
+      width: toRem(18);
+      height: 2px;
+			border-radius: toRem(2);
+    }
+    &:active {
+      &::before,
+      &::after {
+        background: $white;
+      }
+    }
+    @media (any-hover: hover) {
+      &:hover,
+      .quantity:hover & {
+        &::before,
+        &::after {
+          background: $blue;
+        }
+      }
+      &:hover:active {
+        &::before,
+        &::after {
+          background: $white;
+        }
+      }
+    }
+    @media (max-width: $pc) {
+      flex: 0 0 toRem(36);
+			&::before,&::after{
+				content:'';
+				width: toRem(14);
+				margin: 0 0 0 toRem(-7);
+			}
+    }
+    // .quantity__button_plus
+    &--plus {
+      &::before {
+        transform: rotate(-90deg);
+      }
+    }
+    // .quantity__button_minus
+    &--minus {
+    }
+  }
+  // .quantity__input
+  &__input {
+    flex: 1 1 auto;
+    padding: toRem(6);
+    input {
+      height: 100%;
+      width: 100%;
+      background: transparent;
+      font-weight: 500;
+      text-align: center;
+      transition: all 0.3s;
+			@media (max-width: $pc) {
+				font-size: toRem(14);
+				line-height: toRem(20);
+			}
+    }
+  }
+}

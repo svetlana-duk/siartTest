@@ -1,0 +1,154 @@
+/*! Модуль попапа ========================================================================================================================================================*/
+body::after {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease 0s;
+  pointer-events: none;
+  z-index: 149;
+}
+.popup-show body::after {
+  opacity: 1;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: visibility 0.8s ease 0s;
+  visibility: hidden;
+  pointer-events: none;
+  @media (min-width: $mobile) {
+    padding: toRem(24);
+  }
+}
+.popup_show {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
+}
+.popup_show .popup__content {
+  visibility: visible;
+  transform: scale(1);
+}
+.popup__wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  @media (min-width: $mobile) {
+    justify-content: center;
+    align-items: center;
+  }
+}
+.popup__content {
+  visibility: hidden;
+  transform: scale(0);
+  transition: transform 0.3s ease 0s;
+  background-color: $white;
+  padding: toRem(28);
+  width: 100%;
+	display: flex;
+	flex-direction: column;
+  .lock & {
+    visibility: visible;
+  }
+  @media (min-width: $mobile) {
+    max-width: toRem(422);
+    border-radius: toRem(24);
+    box-shadow: 0px 4px 30px 0px rgba(28, 45, 64, 0.1);
+  }
+  @media (max-width: $mobile) {
+    flex: 1 1 100%;
+  }
+}
+.popup {
+  // .popup__close
+  &__close {
+    position: absolute;
+    width: toRem(28);
+    height: toRem(28);
+    top: 0;
+    right: toRem(-40);
+    background: $lightBlue;
+    border-radius: 50%;
+    @extend %btnHoverFill;
+    @extend %btnActiveFill;
+    &::before {
+      content: '';
+      position: absolute;
+      width: toRem(16);
+      height: toRem(16);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: url('@img/icons/popup-close.svg') 0 0 / contain no-repeat;
+    }
+		@media (max-width: $mobile) {
+			top: toRem(28);
+			right: toRem(28);
+		}
+  }
+  // .popup__info
+  &__info {
+		flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+		justify-content: center;
+    gap: toRem(24);
+		@media (max-width: $mobile) {
+			gap: toRem(16);
+		}
+  }
+  // .popup__image-ibg
+  &__image-ibg {
+    width: toRem(100);
+    height: toRem(100);
+		@media (max-width: $mobile) {
+			width: toRem(80);
+			height: toRem(80);
+		}
+    // .popup__image-ibg--contain
+    &--contain {
+    }
+  }
+  // .popup__message
+  &__message {
+    text-align: center;
+  }
+  // .popup__title
+  &__title {
+    font-weight: 500;
+    font-size: toRem(20);
+    line-height: toRem(28);
+    padding-bottom: toRem(4);
+		@media (max-width: $mobile) {
+			font-size: toRem(16);
+			line-height: toRem(24);
+		}
+  }
+  // .popup__text
+  &__text {
+    font-size: toRem(14);
+    line-height: toRem(20);
+    color: $darkGrey;
+		@media (max-width: $mobile) {
+			font-size: toRem(12);
+		}
+  }
+  // .popup__button
+  &__button {
+		@media (max-width: $mobile) {
+			max-width: toRem(200);
+		}
+  }
+}

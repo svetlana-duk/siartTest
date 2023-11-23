@@ -1,0 +1,78 @@
+/* Чекбоксы ========================================================================================================================================================*/
+.checkbox {
+  position: relative;
+  &:not(:last-child) {
+    margin-bottom: em(5);
+  }
+  // .checkbox__input
+  &__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    &:focus-visible + .checkbox__label:before {
+      box-shadow: 0 0 5px #000;
+    }
+    &:checked + .checkbox__label:before {
+      background: $pressBlue;
+    }
+		&:checked + .checkbox__label::after {
+      opacity: 1;
+    }
+  }
+  // .checkbox__label
+  &__label {
+    cursor: pointer;
+    display: inline-flex;
+    position: relative;
+    gap: toRem(12);
+    &:before {
+      content: '';
+      align-self: flex-start;
+      flex: 0 0 toRem(20);
+      width: toRem(20);
+      height: toRem(20);
+      background: $lightBlue;
+      border-radius: toRem(4);
+			transition: all 0.3s;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      width: toRem(10);
+      height: toRem(10);
+      top: toRem(5);
+			left: toRem(5);
+			background: url('@img/icons/check.svg') 0 0 / contain no-repeat;
+			opacity: 0;
+			transition: all 0.3s;
+    }
+		@media (any-hover: hover) {
+			&:hover {
+				&::before{
+					background: $hoverBlue;
+				}
+			}
+		}
+  }
+  // .checkbox__text
+  &__text {
+    align-self: center;
+    font-size: toRem(14);
+    line-height: toRem(20);
+    color: $darkGrey;
+    a {
+			font-weight: 500;
+      text-decoration-line: underline;
+    }
+		@media (max-width: $pc) {
+			font-size: toRem(12);
+			a {
+				line-height: toRem(16);
+			}
+			@media (max-width: em(600)) {
+				max-width: toRem(200);
+			}
+		}
+  }
+}

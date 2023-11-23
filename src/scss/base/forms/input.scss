@@ -1,0 +1,51 @@
+/* Инпуты ========================================================================================================================================================*/
+input,textarea {
+  outline: 0;
+}
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.input {
+  width: 100%;
+  display: block;
+  padding: toRem(14) toRem(26) toRem(14) toRem(16);
+  background: $lightBlueBg;
+  border-radius: toRem(12);
+  &._form-error {
+    background: $formErrorBg;
+    &::placeholder {
+      color: $mainColor;
+    }
+  }
+  @media (max-width: $pc) {
+    padding: toRem(12) toRem(26) toRem(12) toRem(16);
+    border-radius: toRem(8);
+    font-size: toRem(14);
+    line-height: toRem(20);
+  }
+}
+.input::placeholder {
+  color: $darkGrey;
+  opacity: 1;
+}
+.input[placeholder]:not([data-placeholder-nohiden]) {
+  &::placeholder {
+    transition: opacity 0.3s;
+  }
+  &:focus::placeholder {
+    opacity: 0;
+  }
+}
+textarea.input {
+  min-height: toRem(132);
+  resize: none;
+  padding: toRem(14) toRem(16);
+  @media (max-width: $tablet) {
+    padding: toRem(12) toRem(16);
+  }
+}

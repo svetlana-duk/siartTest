@@ -1,0 +1,95 @@
+/*! Кнопки ========================================================================================================================================================*/
+%btnHoverColor {
+  @media (any-hover: hover) {
+    &:hover {
+      background: $white;
+      box-shadow: 0px 2px 7px 0px rgba(28, 45, 64, 0.12);
+      color: $blue;
+    }
+  }
+}
+%btnHoverFill {
+  @media (any-hover: hover) {
+    &:hover {
+      background: $hoverBlue;
+    }
+  }
+}
+%btnHoverDarkFill {
+  @media (any-hover: hover) {
+    &:hover {
+      background: $hoverDarkBlue;
+    }
+  }
+}
+%btnActiveColor {
+  &:active,
+  &.is-favourite,
+  &.is-compare {
+    background: $blue;
+    color: $white;
+  }
+}
+%btnActiveFill {
+  &:active {
+    background: $pressBlue;
+  }
+}
+%btnActiveDarkFill {
+  &:active {
+    background: $pressDarkBlue;
+  }
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: toRem(10);
+  padding: toRem(14) toRem(24);
+  background: $blue;
+  border-radius: toRem(12);
+  white-space: nowrap;
+  color: $white;
+  @media (max-width: $pc) {
+    gap: toRem(8);
+    padding: toRem(8) toRem(16);
+    border-radius: toRem(8);
+    font-size: toRem(14);
+    line-height: toRem(20);
+  }
+  &--full {
+    width: 100%;
+  }
+  // .button--dark
+  &--dark {
+    @extend %btnHoverDarkFill;
+    @extend %btnActiveDarkFill;
+  }
+  // .button--light
+  &--light {
+    background: $lightBlue;
+    color: $blue;
+    @extend %btnHoverFill;
+    @extend %btnActiveFill;
+  }
+  // .button--bordered
+  &--bordered {
+    background: $white;
+    border: 1px solid $blue;
+    color: $blue;
+    @extend %btnHoverFill;
+    @extend %btnActiveFill;
+  }
+  // .button--cart
+  &--cart {
+    &::before {
+      content: '\e904';
+      @extend %ic;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: toRem(19.17);
+    }
+  }
+}

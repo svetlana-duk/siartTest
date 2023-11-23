@@ -1,0 +1,149 @@
+/*! Формы ========================================================================================================================================================*/
+.form {
+  // .form__top
+  &__top {
+    display: flex;
+    gap: toRem(20);
+    padding-bottom: toRem(20);
+    @media (max-width: $pc) {
+      padding-bottom: toRem(16);
+    }
+    @media (max-width: $tablet) {
+      gap: toRem(12);
+      padding-bottom: toRem(28);
+    }
+  }
+  // .form__top-icon-ibg
+  &__top-icon-ibg {
+    flex-shrink: 0;
+    width: toRem(60);
+    height: toRem(60);
+    @media (max-width: $pc) {
+      width: toRem(48);
+      height: toRem(48);
+    }
+    @media (max-width: $tablet) {
+      width: toRem(36);
+      height: toRem(36);
+    }
+    // .form__top-icon-ibg--contain
+    &--contain {
+    }
+  }
+  // .form__top-content
+  &__top-content {
+  }
+  // .form__title
+  &__title {
+    font-weight: 500;
+    font-size: toRem(20);
+    line-height: toRem(28);
+    @media (min-width: $pc) {
+      padding-bottom: toRem(4);
+    }
+    @media (max-width: $mobile) {
+      font-size: toRem(14);
+    }
+  }
+  // .form__text
+  &__text {
+    @media (max-width: $pc) {
+      font-size: toRem(14);
+      line-height: toRem(20);
+    }
+  }
+  // .form__main
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(12);
+  }
+  // .form__row
+  &__row {
+    display: flex;
+    gap: toRem(12);
+    &:last-child {
+      align-items: center;
+      gap: toRem(20);
+      margin-top: toRem(4);
+    }
+    @media (max-width: $mobile) {
+      &:not(:last-child) {
+        flex-direction: column;
+      }
+    }
+    @media (max-width: em(600)) {
+      &:last-child {
+        flex-direction: column;
+      }
+    }
+  }
+  // .form__input
+  &__input {
+    position: relative;
+    // .form__input--textarea
+    &--textarea {
+    }
+    @media (min-width: $mobile) {
+      flex: 0 1 33.333%;
+			&--textarea {
+				flex: 1 1 100%;
+			}
+    }
+  }
+  // .form__button-reset
+  &__button-reset {
+    position: absolute;
+    width: toRem(16);
+    height: toRem(16);
+    top: toRem(18);
+    right: toRem(16);
+    background: url('@img/icons/reset.svg') 0 0 / contain no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    &:active {
+      pointer-events: all;
+    }
+    ._form-focus & {
+      opacity: 1;
+      pointer-events: all;
+    }
+		@media (max-width: $pc) {
+			top: toRem(14);
+		}
+  }
+  // .form__button
+  &__button {
+    flex-shrink: 0;
+    width: toRem(256);
+    @media (max-width: $pc) {
+      width: toRem(224);
+    }
+    @media (max-width: $tablet) {
+      width: toRem(200);
+    }
+  }
+  // .form__consent
+  &__consent {
+  }
+  &__error {
+    padding-top: toRem(4);
+    font-family: 'Manrope', sans-serif;
+    font-size: toRem(10);
+    line-height: toRem(12);
+    color: $formError;
+  }
+}
+
+// <BUTTONS>
+@import 'button';
+
+// <INPUTS>
+@import 'input';
+
+// <CHECK>
+@import 'checkbox';
+
+// <QUANTITY>
+@import 'quantity';
